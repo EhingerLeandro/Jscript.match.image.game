@@ -1,0 +1,113 @@
+body{
+	display:flex;
+	justify-content: center;
+	align-items: center;
+	background-color:#336;
+	width:100vw;
+	height:100vh;
+}
+
+.app-match-img{
+	max-width:500px;
+	border: solid 3px #fff;
+	border-radius: 12px;
+	background-color:#66f;
+}
+
+.inner-frame{
+	padding:10px;
+	display: flex;
+	flex-direction:column;
+	justify-content: center;
+	align-items: center;
+}
+
+.title{
+	padding:5px 15px;
+	font-size:25px;
+	font-weight:700;
+	font-family:sans-serif;
+	color:#fff;
+	background: #338;
+	border-radius:10px;
+}
+
+.settings{
+	padding:10px 0px;
+}
+
+.board{
+	max-width:400px;
+	display:flex;
+	justify-content:center;
+	flex-wrap:wrap;
+	background-color: #88f; 
+	border-radius: 12px;
+}
+
+.instruction{
+	min-width:500px;
+	min-height: 150px;
+	display:flex;
+	justify-content:center;
+	align-items: center;
+	
+
+}
+
+.inner-inst{
+	padding:20px;
+	background:linear-gradient(#95c, #518);
+	border-radius: 10px;
+	font-size:20px;
+	font-family:monospace;
+	color: #fff;
+}
+
+.card{
+	padding:8px;
+	margin: 8px;
+	border: 2px solid #333;
+	display:inline-block;
+	border-radius: 10px;
+	background-color: #eee;
+	font-size:20px;
+	cursor:pointer;
+}
+
+.card:hover{
+	box-shadow: 0px 0px 4px 1px;
+}
+
+.card:active{
+	box-shadow: 0px 0px 4px 1px;
+}
+
+.button{
+	padding:5px;
+	color:#fff;
+	border:1px solid #fff;
+	border-radius: 5px;
+	cursor:pointer;
+	background: #469;
+}
+
+.button:hover{
+	background: #136;
+}
+
+.button:active{
+	background: #136;
+}
+
+.cardToggle{
+	background:linear-gradient(#95c, #518);
+}
+
+.spanToggle{
+	opacity:0%;
+}
+
+.cardOpacity{
+	opacity:0%;
+}
