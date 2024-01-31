@@ -9,14 +9,39 @@
 <body>
 	<div class='app-match-img'>
 		<section class='inner-frame'>
-			<div class='title'>Image Matching Game</div>
+			<div id='title' class='title'>Juego de Memoria</div>
+			<div>
+				<form class='form' >
+					<label class='flags'>
+						<input 
+						name='language' 
+						id='english' 
+						type='radio' 
+						/>
+						<img style='width:20px' src='./images/flag-usa.png'/>
+					</label>
+					<label class='flags'>
+						<input 
+						name='language' 
+						id='spanish' 
+						type='radio' 
+						/>
+						<img style='width:20px' src='./images/flag-spain.png'/>
+					</label>
+				</form>
+			</div>
 			<div class='settings'>
-				<button class=button id='restart'>Restart</button>
-				<button class=button id='smallGame'>Small game</button>
-				<button class=button id='midGame'>Mid game</button>
-				<button class=button id='bigGame'>Big game</button>
+				<button class=button id='restart'>Reiniciar</button>
+				<button class=button id='smallGame'>Juego Pequeño</button>
+				<button class=button id='midGame'>Juego Mediano</button>
+				<button class=button id='bigGame'>Juego Grande</button>
 			</div>
 			<div class='board'>
+				<div  class='instruction'>
+					<div id='instruct' class='inner-inst'>
+						Elige el tamaño del tablero.
+					</div>
+				</div>
 			</div>
 		</section>
 	</div>

@@ -8,7 +8,8 @@ body{
 }
 
 .app-match-img{
-	max-width:500px;
+	margin-top:10px;
+	max-width:700px;
 	border: solid 3px #fff;
 	border-radius: 12px;
 	background-color:#66f;
@@ -51,19 +52,30 @@ body{
 	display:flex;
 	justify-content:center;
 	align-items: center;
-	
-
 }
 
 .inner-inst{
 	padding:20px;
-	background:linear-gradient(#95c, #518);
+	background:#518;
 	border-radius: 10px;
 	font-size:20px;
 	font-family:monospace;
 	color: #fff;
 }
 
+.form{
+	margin:5px;
+	min-width:300px;
+	display:flex;
+	justify-content:center;
+	align-items:center;
+}
+
+.flags{
+	display:flex;
+	align-items:center;
+
+}
 .card{
 	padding:8px;
 	margin: 8px;
@@ -71,7 +83,7 @@ body{
 	display:inline-block;
 	border-radius: 10px;
 	background-color: #eee;
-	font-size:20px;
+	font-size:22px;
 	cursor:pointer;
 }
 
@@ -110,4 +122,11 @@ body{
 
 .cardOpacity{
 	opacity:0%;
+}
+
+@media screen and (max-width:600px){
+	.card{
+		font-size:35px;
+		max-width:600px;
+	}  
 }

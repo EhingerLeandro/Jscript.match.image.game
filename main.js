@@ -2,13 +2,19 @@ const board = document.querySelector('.board'),
       bigGame= document.querySelector('#bigGame'),
       midGame= document.querySelector('#midGame'),
       smallGame= document.querySelector('#smallGame'),
-      restart= document.querySelector('#restart');
+      restart= document.querySelector('#restart'),
+      spanish = document.querySelector('#spanish'),
+      english = document.querySelector('#english'),
+      tittle = document.querySelector('#title'),
+      instruction = document.querySelector('#instructions');
+
 
 let unicodeEmot='&#x1F', 
 	rangeEmot= 25,
 	arrayEmot= [],
 	arrSelecEmot =[],
 	sizeGame=[16, 24, 32];
+	isEnglish=false;
 
 for (let i=0; i<rangeEmot; ++i ){
 	arrayEmot.push(unicodeEmot+(400+i*2));
@@ -19,17 +25,17 @@ let arrRandomFin = [];
 let compareEmot = [];
 
 
-function iniRestart (){
-	board.innerHTML = `<div class='instruction'>
-					<div class='inner-inst'>
-						Chose the size of the Game
+function iniRestart (language){
+	board.innerHTML = `<div  class='instruction'>
+					<div id='instruct' class='inner-inst'>
+						${language ?
+						 'Pick the Board Size.':
+						 'Elige el tamaño del tablero.' }
 					</div>
-				</div>`
-	arrRandomFin = [];
-	console.log(arrRandomFin);
+				</div>`;
 }
+iniRestart(isEnglish);
 
-iniRestart();
 
 function choseEmoticon(size, emotOptions){
 	let numEmotChosen= size/2;
@@ -138,7 +144,30 @@ const chosenButton = (size) =>{
 	console.log(arrRandomFin);
 }
 
-restart.addEventListener('click', iniRestart )
+
+
+const turnIntoSpanish =() =>{
+	isEnglish=false;
+	restart.innerText='Reiniciar';
+	bigGame.innerText='Juego Grande';
+	midGame.innerText='Juego Mediano';
+	smallGame.innerText='Juego Pequeño';
+	title.innerText='Juego de Memoria';
+	iniRestart(isEnglish);
+}
+
+const turnIntoEnglish =() =>{
+	isEnglish=true;
+	restart.innerText='Restart';
+	bigGame.innerText='Big Game';
+	midGame.innerText='Medium Game';
+	smallGame.innerText='Small Game';
+	title.innerText='Memory Game';
+	iniRestart(isEnglish);
+}
+
+
+restart.addEventListener('click', ()=>iniRestart(isEnglish) )
 
 bigGame.addEventListener('click', ()=>chosenButton(sizeGame[2]) )
 
@@ -146,4 +175,7 @@ midGame.addEventListener('click', ()=>chosenButton(sizeGame[1]) )
 
 smallGame.addEventListener('click', ()=>chosenButton(sizeGame[0]) )
 
+spanish.addEventListener('click', turnIntoSpanish )
+
+english.addEventListener('click', turnIntoEnglish)
 
