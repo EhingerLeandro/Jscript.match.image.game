@@ -70,14 +70,11 @@ const itMatches=()=>{
 
 	card1.disable=true;
 	card2.disable=false;
-
 }
 
 const dontMatch=()=>{
-
 	let compare = localStorage.getItem('comparative');
 	let arrCompare = JSON.parse(compare);
-
 
 	const card1 = document.querySelector('.card'+arrCompare[0]);
 	const spanCard1 = document.querySelector('.spanCard'+arrCompare[0]);
@@ -144,8 +141,6 @@ const chosenButton = (size) =>{
 	console.log(arrRandomFin);
 }
 
-
-
 const turnIntoSpanish =() =>{
 	isEnglish=false;
 	restart.innerText='Reiniciar';
@@ -166,16 +161,10 @@ const turnIntoEnglish =() =>{
 	iniRestart(isEnglish);
 }
 
-
 restart.addEventListener('click', ()=>iniRestart(isEnglish) )
-
 bigGame.addEventListener('click', ()=>chosenButton(sizeGame[2]) )
-
 midGame.addEventListener('click', ()=>chosenButton(sizeGame[1]) )
-
 smallGame.addEventListener('click', ()=>chosenButton(sizeGame[0]) )
-
 spanish.addEventListener('click', turnIntoSpanish )
-
 english.addEventListener('click', turnIntoEnglish)
 
