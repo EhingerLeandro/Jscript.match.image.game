@@ -8,8 +8,7 @@ body{
 }
 
 .app-match-img{
-	margin-top:10px;
-	max-width:700px;
+	max-width:600px;
 	border: solid 3px #fff;
 	border-radius: 12px;
 	background-color:#66f;
@@ -26,7 +25,7 @@ body{
 .title{
 	padding:5px 15px;
 	font-size:25px;
-	font-weight:700;
+	font-weight:600;
 	font-family:sans-serif;
 	color:#fff;
 	background: #338;
@@ -34,12 +33,16 @@ body{
 }
 
 .board{
-	max-width:650px;
+	max-width:600px;
 	display:flex;
 	justify-content:center;
 	flex-wrap:wrap;
 	background-color: #88f; 
 	border-radius: 12px;
+}
+
+.smallSize{
+	max-width:400px !important;
 }
 
 .instruction{
@@ -53,6 +56,15 @@ body{
 .inner-inst{
 	padding:20px;
 	background:#518;
+	border-radius: 10px;
+	font-size:20px;
+	font-family:monospace;
+	color: #fff;
+}
+
+.inner-inst-win{
+	padding:20px;
+	background:#fa3;
 	border-radius: 10px;
 	font-size:20px;
 	font-family:monospace;
@@ -130,7 +142,7 @@ body{
 
 @media screen and (max-width:600px){
 	.card{
-		font-size:35px;
+		font-size:32px;
 		max-width:600px;
 	}  
 

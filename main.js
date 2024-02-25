@@ -8,7 +8,6 @@ const board = document.querySelector('.board'),
       tittle = document.querySelector('#title'),
       instruction = document.querySelector('#instructions');
 
-
 let unicodeEmot='&#x1F', 
 	rangeEmot= 25,
 	arrayEmot= [],
@@ -43,6 +42,11 @@ function choseEmoticon(size, emotOptions){
 	let arrChosenB = arrChosen.map(item=> item+'b');
 	let arrEmotDupli = [...arrChosen, ...arrChosenB];
 	arrEmotInitial = arrEmotDupli;
+	if(size>24){
+		board.classList.remove('smallSize');
+	}else{
+		board.classList.add('smallSize');
+	}
 }
 
 //Function that generates another array with emoticons in a random order.
@@ -52,12 +56,35 @@ const randomEmotOrder = (arr) =>{
 	sizeArray = arr.length;
 	while ( sizeArray>0){
 		let currentEmot= Math.floor(Math.random() * sizeArray);
+		/*In this part an object is created, it has one name and an ID,
+		after that, it is pushed in an array*/
 		arrRandom.push({name:String(arrApart[currentEmot]).substring(0, 8), id: String(arrApart[currentEmot]).substring(5, 9), match: false});
 		arrApart.splice(currentEmot, 1);
 		sizeArray -= 1;
 	}
 	arrRandomFin = arrRandom;
 }
+
+const allCardsFound =(language)=>{
+	let numberMatches = 0;
+	arrRandomFin.forEach(item=>{
+		if(item.match === true){
+			numberMatches +=1;
+		}
+	})
+	if(numberMatches === arrRandomFin.length){
+		board.innerHTML = `<div  class='instruction'>
+						<img src='./images/trophy.png'/>
+						<div style='margin:0px 0px 0px 5px;' id='instruct' class='inner-inst-win'>
+							${language ?
+							 '¡Congratulations you Won!':
+							 '¡Felicitaciones ganaste!' }
+						</div>
+					</div>`;
+	}
+
+};
+
 
 //This functionlaity will be activated when a pair of cards matches.
 const itMatches=()=>{
@@ -72,8 +99,23 @@ const itMatches=()=>{
 	card1.classList.toggle('cardOpacity');
 	card2.classList.toggle('cardOpacity');
 
+	arrRandomFin.forEach(item=>{
+		if(item.id==arrCompare[0]){
+			item.match=true;
+		}
+		if(item.id==arrCompare[1]){
+			item.match=true;
+		}
+	})
+	
+	//This two lines of code are used to know if the matches are changing.
+	let arrMatchTest = arrRandomFin.map(item=> item.match);
+	console.log('Arreglo con items que hacen match ->'+ arrMatchTest);
+
 	card1.disable=true;
 	card2.disable=true;
+
+	allCardsFound(isEnglish);
 }
 
 //This functionlaity will be activated when a pair of cards DOESN'T match.
@@ -103,20 +145,19 @@ const checkMatch =(pickEmot)=>{
 		//Here it compares the first and second card.
 		if(compareEmot[0].substring(0, 3) === compareEmot[1].substring(0,3)){
 			setTimeout(itMatches, 500)
-			console.log(compareEmot);
+			console.log('Comparación de seleccionados -> '+compareEmot);
 			compareEmot=[];
 		}else{
-			console.log(compareEmot)
+			console.log('Comparación de seleccionados -> '+compareEmot)
 			setTimeout(dontMatch, 500)
 			compareEmot=[];
 		}
 	}
-	console.log(compareEmot);
 }
 
 //This functionality is inside every card, and it's activated when one card is clicked.
 const pickCardEmot = (pickEmot) =>{
-	console.log(pickEmot);
+	console.log('Card elegida -> '+pickEmot);
 	const card = document.querySelector('.card'+pickEmot);
 	const spanCard = document.querySelector('.spanCard'+pickEmot);
 	card.classList.toggle('cardToggle');
@@ -124,7 +165,7 @@ const pickCardEmot = (pickEmot) =>{
 	checkMatch(pickEmot);
 }
 
-//This function render all cards and gives to those cards.
+//This function render all cards and gives and eventListener to those cards.
 const renderCards = (size, renArr)=>{
 	//This for iterates through every card represented in the array.
 	for (let i=0; i<size; ++i){
@@ -151,7 +192,7 @@ const chosenButton = (size) =>{
 	choseEmoticon(size, arrayEmot);
 	randomEmotOrder(arrEmotInitial);
 	renderCards(size, arrRandomFin);
-	console.log(arrRandomFin);
+	console.log('Este es el arreglo total aleatorio -> ' + arrRandomFin);
 }
 
 //This function changes the information into spanish.
