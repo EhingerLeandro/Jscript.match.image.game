@@ -73,9 +73,10 @@ const allCardsFound =(language)=>{
 		}
 	})
 	if(numberMatches === arrRandomFin.length){
-		board.innerHTML = `<div  class='instruction'>
+		board.innerHTML = `<div style='display:flex; flex-direction:column; align-items:center; padding:5px;' 
+					class='instruction'>
 						<img src='./images/trophy.png'/>
-						<div style='margin:0px 0px 0px 5px;' id='instruct' class='inner-inst-win'>
+						<div style='margin:4px;' id='instruct' class='inner-inst-win'>
 							${language ?
 							 '¡Congratulations you Won!':
 							 '¡Felicitaciones ganaste!' }
