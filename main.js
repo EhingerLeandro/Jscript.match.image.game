@@ -1,3 +1,4 @@
+//Bringing from index.html
 const board = document.querySelector('.board'),
       bigGame= document.querySelector('#bigGame'),
       midGame= document.querySelector('#midGame'),
@@ -8,6 +9,7 @@ const board = document.querySelector('.board'),
       tittle = document.querySelector('#title'),
       instruction = document.querySelector('#instructions');
 
+//Setting diferent variables
 let unicodeEmot='&#x1F', 
 	rangeEmot= 25,
 	arrayEmot= [],
@@ -19,6 +21,7 @@ for (let i=0; i<rangeEmot; ++i ){
 	arrayEmot.push(unicodeEmot+(400+i*2));
 }
 
+//setting variables with a global scope. 
 let arrEmotInitial=[];
 let arrRandomFin = [];
 let compareEmot = [];
