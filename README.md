@@ -6,4 +6,4 @@ so you can win.
 -Este es un juego en el que debes encontrar cada par gemelo de imágenes,
 para que puedas ganar.
 
-*Aquí puedes jugar con la apliación:** [https://memory-game-jscript.netlify.app](https://memory-game-jscript.netlify.app)
+**Aquí puedes jugar con la apliación:** [https://memory-game-jscript.netlify.app](https://memory-game-jscript.netlify.app)
