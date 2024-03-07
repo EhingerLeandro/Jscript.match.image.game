@@ -55,7 +55,8 @@ body{
 
 .inner-inst{
 	padding:20px;
-	background:#518;
+	background:#629;
+	border:solid 4px #73b;
 	border-radius: 10px;
 	font-size:20px;
 	font-family:monospace;
